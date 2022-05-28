@@ -22,4 +22,5 @@ public class Student {
     private String placeOfBirth;
     private String address;
     private String depName;
+    private boolean active;
 }

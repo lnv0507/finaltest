@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.convert.StudentConvert;
+import com.example.demo.converter.StudentConverter;
 import com.example.demo.entity.Student;
+import com.example.demo.payload.StudentRequest;
 import com.example.demo.payload.StudentResponse;
 import com.example.demo.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentService {
     public final StudentRepository studentRepository;
-    public final StudentConvert studentConvert;
+    public final StudentConverter studentConvert;
 
     public List<StudentResponse> getStudent() {
         List<Student> student = studentRepository.findAll();
@@ -25,4 +26,26 @@ public class StudentService {
         return list;
     }
 
+    public StudentResponse create(StudentRequest studentRequest) {
+        Student student = studentRepository.save(Student.builder()
+                .id(studentRequest.getId())
+                .address(studentRequest.getAddress())
+                .birthday(studentRequest.getBirthday())
+                .depName(studentRequest.getDepName())
+                .male(studentRequest.isMale())
+                .placeOfBirth(studentRequest.getPlaceOfBirth())
+                .name(studentRequest.getName())
+                .build());
+        return studentConvert.toResponse(student);
+    }
+
+    public void delete(String id) {
+        Student student = studentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Task list is not exist"));
+        if (student.isActive()) {
+            student.setActive(false);
+            studentRepository.save(student);
+        } else {
+            throw new IllegalArgumentException("Task list is not exist");
+        }
+    }
 }

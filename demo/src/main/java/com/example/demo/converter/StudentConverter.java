@@ -1,11 +1,11 @@
-package com.example.demo.convert;
+package com.example.demo.converter;
 
 import com.example.demo.entity.Student;
 import com.example.demo.payload.StudentResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentConvert {
+public class StudentConverter {
 
     public StudentResponse toResponse(Student entity) {
         return StudentResponse.builder()

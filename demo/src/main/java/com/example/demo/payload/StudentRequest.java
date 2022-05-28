@@ -1,13 +1,11 @@
 package com.example.demo.payload;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
-public class StudentResponse {
+public class StudentRequest {
     private String id;
     private String name;
     private boolean male;
