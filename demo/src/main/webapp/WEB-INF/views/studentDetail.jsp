@@ -10,19 +10,32 @@
 <table>
     <tr>
         <td>StudentID</td>
-        <td>Nguy?n</td>
+        <td>${student.id}</td>
     </tr>
     <tr>
-        <td>StudentID</td>
-        <td>Nguy?n</td>
+        <td>Name</td>
+        <td>${student.name}</td>
     </tr>
     <tr>
-        <td>StudentID</td>
-        <td>Nguy?n</td>
+        <td>Male</td>
+        <td>${student.male}</td>
     </tr>
     <tr>
-        <td>StudentID</td>
-        <td>Nguy?n</td>
+        <td>Birthday</td>
+        <td>${student.birthday}</td>
+    </tr>
+    <tr>
+        <td>Place of Birth</td>
+        <td>${student.placeOfBirth}</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>${student.address}</td>
+    </tr>
+
+    <tr>
+        <td>Department</td>
+        <td>${student.depName}</td>
     </tr>
 </table>
     <div>

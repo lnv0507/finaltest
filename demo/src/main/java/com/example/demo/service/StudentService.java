@@ -26,6 +26,11 @@ public class StudentService {
         return list;
     }
 
+    public StudentResponse getStudentById(String idStudent) {
+        Student student = studentRepository.findById(idStudent).orElseThrow(() -> new IllegalArgumentException("not found"));
+        return studentConvert.toResponse(student);
+    }
+
     public StudentResponse create(StudentRequest studentRequest) {
         Student student = studentRepository.save(Student.builder()
                 .id(studentRequest.getId())

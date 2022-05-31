@@ -20,7 +20,7 @@ public class StudentController {
         try {
             return ResponseEntity.ok(ResponseCommon.success(studentService.getStudent()));
         } catch (Error ex) {
-            log.error("API /api/v1/student =  getStudent", ex);
+            log.error("API /api/v1/student -  getStudent", ex);
             return ResponseEntity.ok(ResponseCommon.fail(ex.getMessage()));
         }
     }
